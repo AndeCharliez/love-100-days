@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ZCL ♥ HXY 恋爱100天</title>
+<style>
+    body {
+        background: #fffaf0; /* 温馨的浅色背景 */
+        font-family: "Microsoft YaHei", sans-serif;
+        text-align: center;
+        padding: 50px;
+        color: #333;
+    }
+    h1, h2, p {
+        margin: 20px 0;
+    }
+    .heart {
+        font-size: 100px;
+        color: #e74c3c;
+        animation: beat 1s infinite alternate;
+    }
+    @keyframes beat {
+        from {transform: scale(1);}
+        to {transform: scale(1.2);}
+    }
+    .info {
+        font-size: 18px;
+        color: #555;
+    }
+</style>
+</head>
+<body>
+
+<h1>ZCL ♥ HXY</h1>
+<div class="heart">❤</div>
+<h2>今天是我们恋爱的第<span id="daysCount"></span>天</h2>
+<p class="info">起始日期：2024年9月2日</p>
+<p class="info" id="message"></p>
+
+<script>
+// 恋爱开始日期
+var startDate = new Date(2024, 8, 2); // 月份从0开始，8代表9月
+var now = new Date();
+var diffTime = now - startDate;
+var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+// 更新显示天数
+document.getElementById('daysCount').innerText = diffDays;
+
+// 判断是否是第100天
+var messageElem = document.getElementById('message');
+if (diffDays === 100) {
+    messageElem.innerText = "亲爱的，今天是我们恋爱的第100天纪念日！";
+} else if (diffDays < 100) {
+    var remain = 100 - diffDays;
+    messageElem.innerText = "距离我们的100天纪念，还有 " + remain + " 天！";
+} else {
+    messageElem.innerText = "我们已经超过100天啦！现在是第 " + diffDays + " 天！";
+}
+</script>
+
+</body>
+</html>
